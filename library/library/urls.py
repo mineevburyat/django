@@ -26,9 +26,9 @@ urlpatterns = [
 ]
 
 # redirect to base
-urlpatterns += [
-    path('', RedirectView.as_view(url='library/', permanent=True)),
-]
+# urlpatterns += [
+#     path('', RedirectView.as_view(url='library/', permanent=True)),
+# ]
 
 # debug mode
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
