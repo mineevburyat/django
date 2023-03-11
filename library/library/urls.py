@@ -19,6 +19,7 @@ from django.views.generic import RedirectView
 # Только на период разработки
 from django.conf import settings
 from django.conf.urls.static import static
+from libcatalog.views import help
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,9 +27,18 @@ urlpatterns = [
 ]
 
 # redirect to base
-# urlpatterns += [
-#     path('', RedirectView.as_view(url='library/', permanent=True)),
-# ]
+urlpatterns += [
+    path('', RedirectView.as_view(url='library/', permanent=True)),
+]
 
 # debug mode
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+#Add Django site authentication urls (for login, logout, password management)
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
+
+urlpatterns += [
+    path('help/', help),
+]
