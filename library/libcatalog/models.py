@@ -26,6 +26,7 @@ class Book(models.Model):
     class Meta:
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
+        ordering = ["title"]
         
     title = models.CharField(max_length=200)
     slug = models.CharField(max_length=30,
@@ -58,9 +59,6 @@ class Book(models.Model):
     # Genre class has already been defined so we can specify the object above.
 
     def __str__(self):
-        """
-        String for representing the Model object.
-        """
         return self.title
 
 
