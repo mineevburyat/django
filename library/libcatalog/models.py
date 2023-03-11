@@ -49,7 +49,6 @@ class Book(models.Model):
         help_text='ISBN 13-ти значный индентификатор <a href="https://www.isbn-international.org/content/what-isbn">ISBN number</a>')
     genre = models.ManyToManyField(
         Genre,
-        null=True,
         blank=True,
         verbose_name='Жанр', 
         help_text="укажите жанр этой книги")
